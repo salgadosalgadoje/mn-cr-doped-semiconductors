@@ -4,10 +4,12 @@ This repository contains a Jupyter notebook and a Python script for exploring
 temperature-dependent magnetic and thermodynamic quantities in a diluted
 magnetic semiconductor (DMS).
 
-> **Scope note:** Although the repository and file names refer to Mn- and
-> Cr-doped semiconductors, the notebook's theoretical discussion and
-> implementation are specifically for Fe-doped GaSb (`GaSb:Fe`) with
-> `Fe³⁺` ions. The current code does not model Mn or Cr doping.
+## Theoretical basis
+
+The simulations are based on the theoretical framework for Fe-doped GaSb
+(`GaSb:Fe`) with `Fe³⁺` ions. This framework provides the physical model and
+equations used to study magnetic and thermodynamic behavior in the Mn- and
+Cr-doped diluted magnetic semiconductors considered by this project.
 
 ## What the simulation calculates
 
