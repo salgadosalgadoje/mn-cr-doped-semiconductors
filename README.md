@@ -1,35 +1,37 @@
 # Mn- and Cr-Doped Diluted Magnetic Semiconductors
 
-This repository contains a Jupyter notebook and a Python script for exploring
-temperature-dependent magnetic and thermodynamic quantities in a diluted
-magnetic semiconductor (DMS).
+This repository contains two Jupyter notebooks and corresponding Python scripts
+for exploring temperature-dependent magnetic and thermodynamic quantities in
+Diluted Magnetic Semiconductors (DMSs).
 
 ## Theoretical basis
 
-The simulations are based on the theoretical framework for Fe-doped GaSb
-(`GaSb:Fe`) with `Fe³⁺` ions. This framework provides the physical model and
-equations used to study magnetic and thermodynamic behavior in the Mn- and
-Cr-doped diluted magnetic semiconductors considered by this project.
+The project combines two complementary models:
 
-## What the simulation calculates
+- A theoretical framework for Fe-doped GaSb (`Ga_{1-x}Fe_xSb`) with `Fe³⁺`
+  ions, used to study the magnetic and thermodynamic behavior of the
+  semiconductor host.
+- A consolidated model for the magnetic properties of Mn-doped wurtzite AlN
+  (`Al_{1-x}Mn_xN`), covering the relevant temperature-dependent behavior and
+  transition trends in the Mn-containing system.
 
-Using a low-temperature magnon model, the notebook calculates and plots:
+Together, these notebooks provide a practical set of calculations for
+Curie-temperature trends, reduced magnetization curves, and heat-capacity
+profiles.
 
-- The Curie temperature as a function of Fe concentration, for
-  `x = 0.039` to `0.2`.
-- The magnon heat-capacity trend over `0` to `330 K`, for concentrations
-  `x = 0.17`, `0.18`, `0.19`, and `0.20`.
-- The reduced magnetization, `Mₛ(T) / Mₛ(0)`, from `0 K` to the calculated
-  Curie temperature at `x = 0.2`.
+## What the simulations calculate
 
-The model uses a Heisenberg exchange description and a quadratic long-wavelength
-magnon dispersion. Its parameters in the current implementation include an
-exchange constant of `10 meV`, a lattice constant of `6.09 Å`, spin `S = 5/2`,
-and carrier density `5 × 10²⁶ m⁻³`.
+Using low-temperature magnon and exchange-based models, the notebooks calculate
+and plot:
 
-The heat-capacity calculation is presented in arbitrary units: the notebook
-notes that the unit scale depends on unspecified mass units. Treat the plotted
-curves as model trends, not as calibrated experimental predictions.
+- Curie temperature as a function of dopant concentration.
+- Heat-capacity trends over temperature.
+- Reduced magnetization curves, `M_s(T) / M_s(0)`, over the relevant
+  temperature range.
+
+The model uses Heisenberg-like exchange descriptions and long-wavelength magnon
+approximations to capture the qualitative temperature dependence of the
+magnetic response.
 
 ## Repository contents
 
@@ -38,10 +40,15 @@ figures/
   01_Curie_Temperature_vs_Concentration.png
   02_Heat_Capacity_vs_Temperature.png
   03_Reduced_Magnetization_vs_Temperature.png
+  04_Tc_vs_Mn_Concentration.png
+  05_Reduced_Magnetization.png
+  06_Heat_Capacity.png
 notebooks/
-  01-simulation of Mn- and Cr-doped DMS.ipynb
+  01-Theoretical Framework (Ga_{1-x}Fe_xSb).ipynb
+  02-Consolidated Theoretical Model of the Magnetic Properties of Al_{1-x}Mn_xN (Wurtzite).ipynb
 src/
-  01-simulation of Mn- and Cr-doped DMS.py
+  01-Theoretical Framework (Ga_{1-x}Fe_xSb).py
+  02-Consolidated Theoretical Model of the Magnetic Properties of Al_{1-x}Mn_xN (Wurtzite).py
 requirements.txt
 ```
 
@@ -53,7 +60,7 @@ Use Python 3.9 or later. From the repository root, install the dependencies:
 python -m pip install -r requirements.txt
 ```
 
-## Run the notebook
+## Run the notebooks
 
 Start Jupyter from the repository root:
 
@@ -61,22 +68,24 @@ Start Jupyter from the repository root:
 python -m jupyter notebook
 ```
 
-Open `notebooks/01-simulation of Mn- and Cr-doped DMS.ipynb` and run its cells
-in order.
+Open either notebook in the `notebooks/` directory and run its cells in order:
 
-## Run the Python script
+- `notebooks/01-Theoretical Framework (Ga_{1-x}Fe_xSb).ipynb`
+- `notebooks/02-Consolidated Theoretical Model of the Magnetic Properties of Al_{1-x}Mn_xN (Wurtzite).ipynb`
 
-The script saves its figures to `../figures` relative to the current working
-directory. Run it from the `src` directory so the output is written to the
-repository's `figures` directory:
+## Run the Python scripts
+
+Each script saves its figures to the repository's `figures` directory when run
+from the `src` folder:
 
 ```powershell
 Set-Location src
-python "01-simulation of Mn- and Cr-doped DMS.py"
+python "01-Theoretical Framework (Ga_{1-x}Fe_xSb).py"
+python "02-Consolidated Theoretical Model of the Magnetic Properties of Al_{1-x}Mn_xN (Wurtzite).py"
 ```
 
-The script also opens the plots interactively when the selected Matplotlib
-backend supports graphical windows.
+The scripts also open plots interactively when the selected Matplotlib backend
+supports graphical windows.
 
 ## Figures
 
@@ -91,3 +100,15 @@ backend supports graphical windows.
 ### Reduced magnetization versus temperature
 
 ![Reduced magnetization versus temperature](figures/03_Reduced_Magnetization_vs_Temperature.png)
+
+### Curie temperature versus Mn concentration
+
+![Curie temperature versus Mn concentration](figures/04_Tc_vs_Mn_Concentration.png)
+
+### Reduced magnetization
+
+![Reduced magnetization](figures/05_Reduced_Magnetization.png)
+
+### Heat capacity
+
+![Heat capacity](figures/06_Heat_Capacity.png)
