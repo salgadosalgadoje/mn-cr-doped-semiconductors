@@ -1,8 +1,8 @@
 # Mn- and Cr-Doped Diluted Magnetic Semiconductors
 
-This repository contains two Jupyter notebooks and corresponding Python scripts
-for exploring temperature-dependent magnetic and thermodynamic quantities in
-Diluted Magnetic Semiconductors (DMSs).
+This repository contains three Jupyter notebooks and corresponding Python
+scripts for exploring temperature-dependent magnetic and thermodynamic
+quantities in Diluted Magnetic Semiconductors (DMSs).
 
 ## Theoretical basis
 
@@ -14,10 +14,14 @@ The project combines two complementary models:
 - A consolidated model for the magnetic properties of Mn-doped wurtzite AlN
   (`Al_{1-x}Mn_xN`), covering the relevant temperature-dependent behavior and
   transition trends in the Mn-containing system.
+- A comparative study of Mn-doped AlN, GaN, and GaSb, using wurtzite
+  structures for AlN and GaN and a zinc-blende structure for GaSb. The model
+  assumes `S = 5/2` and compares Curie temperature across concentrations, plus
+  reduced magnetization and magnon heat capacity for `x = 5%`. The heat-capacity
+  curves also compare concentrations from 5% to 8%.
 
-Together, these notebooks provide a practical set of calculations for
-Curie-temperature trends, reduced magnetization curves, and heat-capacity
-profiles.
+Together, these studies provide calculations for Curie-temperature trends,
+reduced magnetization curves, and heat-capacity profiles.
 
 ## What the simulations calculate
 
@@ -43,12 +47,20 @@ figures/
   04_Tc_vs_Mn_Concentration.png
   05_Reduced_Magnetization.png
   06_Heat_Capacity.png
+  07_Tc_vs_Mn_Concentration.png
+  08_Reduced_Magnetization.png
+  09_Heat_Capacity_AlN_Mn.png
+  10_Heat_Capacity_GaN_Mn.png
+  11_Heat_Capacity_GaSb_Mn.png
+  12_Combined_Dashboard.png
 notebooks/
-  01-Theoretical Framework (Ga_{1-x}Fe_xSb).ipynb
-  02-Consolidated Theoretical Model of the Magnetic Properties of Al_{1-x}Mn_xN (Wurtzite).ipynb
+  01-Theoretical_Framework_(Ga_{1-x}Fe_xSb).ipynb
+  02-Consolidated_Theoretical_Model_of_the_Magnetic_Properties_of_Al_{1-x}Mn_xN_(Wurtzite).ipynb
+  03-Theoretical_Comparative_Study_AlN.ipynb
 src/
-  01-Theoretical Framework (Ga_{1-x}Fe_xSb).py
-  02-Consolidated Theoretical Model of the Magnetic Properties of Al_{1-x}Mn_xN (Wurtzite).py
+  01-Theoretical_Framework_(Ga_{1-x}Fe_xSb).py
+  02-Consolidated_Theoretical_Model_of_the_Magnetic_Properties_of_Al_{1-x}Mn_xN_(Wurtzite).py
+  03-Theoretical_Comparative_Study_AlN.py
 requirements.txt
 ```
 
@@ -68,20 +80,22 @@ Start Jupyter from the repository root:
 python -m jupyter notebook
 ```
 
-Open either notebook in the `notebooks/` directory and run its cells in order:
+Open a notebook in the `notebooks/` directory and run its cells in order:
 
-- `notebooks/01-Theoretical Framework (Ga_{1-x}Fe_xSb).ipynb`
-- `notebooks/02-Consolidated Theoretical Model of the Magnetic Properties of Al_{1-x}Mn_xN (Wurtzite).ipynb`
+- `notebooks/01-Theoretical_Framework_(Ga_{1-x}Fe_xSb).ipynb`
+- `notebooks/02-Consolidated_Theoretical_Model_of_the_Magnetic_Properties_of_Al_{1-x}Mn_xN_(Wurtzite).ipynb`
+- `notebooks/03-Theoretical_Comparative_Study_AlN.ipynb`
 
 ## Run the Python scripts
 
-Each script saves its figures to the repository's `figures` directory when run
-from the `src` folder:
+Run the scripts from the `src` folder. They save their figures to the
+repository's `figures` directory:
 
 ```powershell
 Set-Location src
-python "01-Theoretical Framework (Ga_{1-x}Fe_xSb).py"
-python "02-Consolidated Theoretical Model of the Magnetic Properties of Al_{1-x}Mn_xN (Wurtzite).py"
+python "01-Theoretical_Framework_(Ga_{1-x}Fe_xSb).py"
+python "02-Consolidated_Theoretical_Model_of_the_Magnetic_Properties_of_Al_{1-x}Mn_xN_(Wurtzite).py"
+python "03-Theoretical_Comparative_Study_AlN.py"
 ```
 
 The scripts also open plots interactively when the selected Matplotlib backend
@@ -112,3 +126,32 @@ supports graphical windows.
 ### Heat capacity
 
 ![Heat capacity](figures/06_Heat_Capacity.png)
+
+### Comparative Curie temperature versus Mn concentration
+
+The comparison includes Mn-doped AlN, GaN, and GaSb.
+
+![Comparative Curie temperature versus Mn concentration](figures/07_Tc_vs_Mn_Concentration.png)
+
+### Comparative reduced magnetization at 5% Mn
+
+![Comparative reduced magnetization at 5% Mn](figures/08_Reduced_Magnetization.png)
+
+### Heat capacity: AlN:Mn
+
+![Heat capacity of AlN:Mn](figures/09_Heat_Capacity_AlN_Mn.png)
+
+### Heat capacity: GaN:Mn
+
+![Heat capacity of GaN:Mn](figures/10_Heat_Capacity_GaN_Mn.png)
+
+### Heat capacity: GaSb:Mn
+
+![Heat capacity of GaSb:Mn](figures/11_Heat_Capacity_GaSb_Mn.png)
+
+### Comparative dashboard
+
+The dashboard combines Curie-temperature trends, reduced magnetization, and
+heat-capacity curves for all three materials.
+
+![Combined comparative dashboard](figures/12_Combined_Dashboard.png)
